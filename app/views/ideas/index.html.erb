@@ -1,0 +1,24 @@
+<p><a href='/bright_ideas'>Bright Ideas</a></p>
+
+<h3>Hi <%= current_user.alias %>!</h3>
+
+
+<form action="/ideas" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="text" name="idea" placeholder='Post something witty here...'>
+  <input type="submit" value="Idea!">
+</form>
+</br>
+</br>
+
+<% @ideas.each do |i| %>
+  <p><a href="/users/<%=i.user.id%>"><%= i.user.alias %></a></a> says:
+  <%= i.idea %>    </p>
+  <form action='/likes' method='post'>
+  	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  	<input type="hidden" name="_method" value="patch">
+  	<input type="submit" value="Like">
+  </form>
+  <a href="ideas/<%=i.id%>"><%=Like.where(idea_id: i.id).count%> people </a>like this
+  </br>
+    <% end %>

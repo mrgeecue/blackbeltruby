@@ -28,7 +28,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'rails-footnotes'
 gem 'hirb'
-gem 'pry'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

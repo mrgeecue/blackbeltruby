@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: blackbeltruby_production
-  username: blackbeltruby
+  username: ubuntu
   password: <%= ENV['BLACKBELTRUBY_DATABASE_PASSWORD'] %>
